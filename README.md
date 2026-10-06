@@ -5,7 +5,7 @@
 ![Bioconductor](https://img.shields.io/badge/Bioconductor-3.22-1a81c2)
 ![Data](https://img.shields.io/badge/data-PRJNA506047-orange)
 ![Scope](https://img.shields.io/badge/scope-chr19-lightgrey)
-![checks](https://github.com/koncevojdanila10-source/RNA-seq-Best-Practice-R/actions/workflows/check.yml/badge.svg)
+![checks](https://github.com/MarFedorovna/RNA-seq-Best-Practice-R/actions/workflows/check.yml/badge.svg)
 
 Differential expression, enrichment, cell-type deconvolution, co-expression
 networks, allele-specific expression, alternative splicing and power analysis,
@@ -286,7 +286,7 @@ pairwise genotype concordance.
 
 ```bash
 git clone https://github.com/koncevojdanila10-source/RNA-seq-Best-Practice.git
-git clone https://github.com/koncevojdanila10-source/RNA-seq-Best-Practice-R.git
+git clone https://github.com/MarFedorovna/RNA-seq-Best-Practice-R.git
 ```
 
 Run the upstream pipeline first; it writes to `~/rna_work`. If it lives

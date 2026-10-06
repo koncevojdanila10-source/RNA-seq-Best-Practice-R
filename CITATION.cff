@@ -5,7 +5,7 @@ type: software
 authors:
   - family-names: "Kolyvanova"
     given-names: "Marina"
-repository-code: "https://github.com/koncevojdanila10-source/RNA-seq-Best-Practice-R"
+repository-code: "https://github.com/MarFedorovna/RNA-seq-Best-Practice-R"
 license: MIT
 date-released: 2026-10-06
 keywords:
