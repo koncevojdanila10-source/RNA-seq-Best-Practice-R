@@ -1,0 +1,17 @@
+cff-version: 1.2.0
+message: "If you use this repository, please cite it as below, and cite the original dataset paper (Zhu et al. 2019, Frontiers in Neurology 10:36)."
+title: "Downstream RNA-seq analysis on chromosome 19 (ischemic stroke PBMC)"
+type: software
+authors:
+  - family-names: "Kontsevoy"
+    given-names: "Danial"
+repository-code: "https://github.com/koncevojdanila10-source/RNA-seq-Best-Practice-R"
+license: MIT
+date-released: 2026-10-06
+keywords:
+  - RNA-seq
+  - differential expression
+  - WGCNA
+  - allele-specific expression
+  - alternative splicing
+  - statistical power

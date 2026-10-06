@@ -1,0 +1,7 @@
+
+=== 99b - README consistency check ===
+  table  -> /root/rna_work_r/results/tables/99b_readme_check.tsv
+
+29 of 29 figures quoted in README.md confirmed against the tables
+
+=== 99b done - every checked figure matches ===

@@ -18,7 +18,7 @@ found; this file is about how.
 10. [Step 17 — splicing](#10-step-17--splicing)
 11. [Step 18 — power](#11-step-18--power)
 12. [The cross-checks, x1 to x6](#12-the-cross-checks-x1-to-x6)
-13. [Step 99 — the summary](#13-step-99--the-summary)
+13. [Steps 98, 99 and 99b — figure, summary and README check](#13-steps-98-99-and-99b--figure-summary-and-readme-check)
 
 ## 1. How the pieces fit together
 
@@ -155,7 +155,7 @@ look hung.
 ### `run_all.sh`
 
 ```bash
-STEPS=(11 12 13 14 15 16 16b 17 18 x1 x2 x3 x4 x6 99)
+STEPS=(11 12 13 14 15 16 16b 17 18 x1 x2 x3 x4 x6 98 99 99b)
 ```
 
 An array, so the order is data and `--from` can walk it. The loop sets
@@ -638,11 +638,23 @@ dispersion of the paired model is then fed to `rnapower`, since in a balanced
 paired design the variance of the effect estimate has the same form as for two
 independent groups.
 
-## 13. Step 99 — the summary
+## 13. Steps 98, 99 and 99b — figure, summary and README check
 
-`99_summarize_results.R` reads the tables the steps wrote and builds `SUMMARY.md`.
+**98** draws the four-panel overview figure from tables that earlier steps wrote. It computes nothing new, so every value on the figure can be traced to its source.
+
+**99** (`99_summarize_results.R`) reads the tables the steps wrote and builds `SUMMARY.md`.
 Anything a table does not carry directly (an R², a correlation, a Jaccard index,
 the soft threshold chosen) is recomputed from the rows of the table, so it traces
 back to its inputs. A section whose input is missing is skipped and listed at the
 end, never filled with a guess. It also copies the small figures and tables into
 `showcase/`, leaving out anything over 60 KB and the per-gene matrices.
+
+**99b** (`99b_check_readme.R`) guards the README. Prose does not update itself, so a
+figure typed into a sentence goes stale the moment a step is re-run with a different
+seed, threshold or data. Each figure the README quotes is recomputed from the tables,
+formatted the way the README writes it, and looked up in the README text. A mismatch
+is reported, and the script exits with an error, but nothing is rewritten: the README
+is written by a person, and whether the sentence or the table needs to change is a
+judgement the script should not make. The typographic characters in the README (minus
+sign, en dash, arrow, superscript two) are mapped to ASCII first so the lookups stay
+plain strings.

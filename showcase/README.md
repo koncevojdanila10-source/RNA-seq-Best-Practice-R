@@ -9,6 +9,7 @@ are copies of files written under `~/rna_work_r/results` and are refreshed by
 
 | file | what it shows |
 |---|---|
+| `98_overview.png` | the four-panel summary of the project: library composition, where the hits are, ASE against genotype quality, and the power bracket |
 | `11_normalisation_comparison.png` | mean against standard deviation under log2, log2 with size factors, and rlog |
 | `11_pca.png` | PCA of the twelve libraries on rlog values |
 | `11_venn_acute_vs_control.png`, `11_venn_acute_vs_subacute.png` | genes called by DESeq2, edgeR and limma-voom, with and without multiple-testing correction |

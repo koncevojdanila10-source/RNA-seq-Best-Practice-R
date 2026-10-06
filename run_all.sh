@@ -23,7 +23,7 @@ set -euo pipefail
 cd "$(dirname "${BASH_SOURCE[0]}")"
 source config.sh
 
-STEPS=(11 12 13 14 15 16 16b 17 18 x1 x2 x3 x4 x6 99)
+STEPS=(11 12 13 14 15 16 16b 17 18 x1 x2 x3 x4 x6 98 99 99b)
 
 usage() {
     sed -n '2,22p' "${BASH_SOURCE[0]}" | sed 's/^# \{0,1\}//'

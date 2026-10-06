@@ -231,6 +231,8 @@ invisible(dev.off())
 
 pcaData <- plotPCA(rlog(ddsHTSeq), intgroup = "CONDITION", returnData = TRUE)
 pv <- round(100 * attr(pcaData, "percentVar"))
+save_tab(data.frame(component = paste0("PC", seq_along(pv)), percent_variance = pv),
+         "11_pca_variance")
 save_fig(
     ggplot(pcaData, aes(PC1, PC2, color = CONDITION)) +
         geom_point(size = 4, alpha = 0.8) +

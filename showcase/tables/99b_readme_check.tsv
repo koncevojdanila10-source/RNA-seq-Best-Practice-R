@@ -1,0 +1,30 @@
+check	expected	found
+intronic range, patients	7.3-14.2% in patients	TRUE
+intronic range, controls	21.2-27.0% in controls	TRUE
+R2 of intronic fraction on group	R2 = 0.93	TRUE
+rho within the patients	rho = -0.881	TRUE
+odds ratios	odds ratio 38.3 and 19.6	TRUE
+11 of the 12 ribosomal genes are DEGs in both contrasts	(condition on the tables)	TRUE
+DEG count with the covariate	(296 -> 4 and 471 -> 5 genes)	TRUE
+PC1 variance	61% of the variance	TRUE
+tool agreement	Spearman 0.96-1.00	TRUE
+main module against intronic fraction	rho = -0.979	TRUE
+BioNERO against intronic fraction	implementation: -0.937)	TRUE
+size of the main module	701 of the 1,109 genes	TRUE
+ARI at matched settings	adjusted Rand index 0.27	TRUE
+ARI at default settings	0.09 at each package	TRUE
+differentially spliced events	1,068 and 1,584 differentially spliced events	TRUE
+events detected against intronic fraction	rho = 0.769	TRUE
+TIL10 markers present	13 of the 170 marker genes	TRUE
+TIL10 coverage	(7.65%)	TRUE
+mean neutrophil share	88.8% neutrophils	TRUE
+share of genes called imbalanced	calls 54% of genes imbalanced	TRUE
+sites per sample between 800 and 7,000	(condition on the tables)	TRUE
+ASE rate against doubtful calls	rho = 0.949)	TRUE
+lowest alternate fraction	0.077 against 0.429	TRUE
+smallest adjusted p in the three fits	0.105, 0.194, 0.902	TRUE
+small-p excess with pair P3	9-11% below 0.05	TRUE
+small-p share without pair P3	(4.5%)	TRUE
+power bracket, edgeR variability	0.13 to 0.85	TRUE
+power bracket, paired fits	0.11 to 0.94	TRUE
+genotype concordance of the conflicting pair	(0.7345)	TRUE

@@ -172,6 +172,12 @@ conda run --no-capture-output -n "${CONDA_ENV}" \
     Rscript "${TMPDIR:-/tmp}/versions.R" "${REQUIRED_R[@]}" \
     > "${PROJECT_DIR}/envs/versions_installed.txt"
 
+# A pinned copy of the environment, with build strings and the machine-specific
+# prefix line removed so it can be recreated on another machine:
+#   conda env create -f envs/rna_r.yml
+log "exporting envs/rna_r.yml"
+conda env export -n "${CONDA_ENV}" --no-builds | grep -v '^prefix:' \n    > "${PROJECT_DIR}/envs/rna_r.yml"
+
 log "=== done ==="
 log "environment: ${CONDA_ENV}"
 log "manifest:    envs/versions_installed.txt"

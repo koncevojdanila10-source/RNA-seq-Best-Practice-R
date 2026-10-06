@@ -49,6 +49,7 @@ genes after filterByExpr: 1284
 
 === MDS, PCA, heatmap, volcano ===
 using ntop=500 top features by variance
+  table  -> /root/rna_work_r/results/tables/11_pca_variance.tsv
   figure -> /root/rna_work_r/results/figures/11_pca.png
   figure -> /root/rna_work_r/results/figures/11_volcano_acute_vs_control.png
   figure -> /root/rna_work_r/results/figures/11_volcano_subacute_vs_control.png

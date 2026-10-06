@@ -61,6 +61,13 @@ DEG count when intronic fraction is added to the model. The covariate is largely
 | subacute_vs_control | 471 | 5 |   1.1 |
 | acute_vs_subacute | 2 | 1 | 50 |
 
+Share of variance carried by the leading principal components (rlog values, top 500 genes).
+
+| component | percent_variance |
+|---|---|
+| PC1 | 61 |
+| PC2 | 11 |
+
 
 ## Annotation and enrichment
 

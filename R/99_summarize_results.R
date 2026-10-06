@@ -117,6 +117,14 @@ if (!is.null(cov)) {
 }
 
 # ---------------------------------------------------------------------------
+# Share of variance on the leading principal components, for the PCA figure.
+pcv <- tab("11_pca_variance")
+if (!is.null(pcv)) {
+    add("Share of variance carried by the leading principal components (rlog values, top 500 genes).")
+    add("")
+    put(head(pcv, 3))
+}
+
 section("Annotation and enrichment",
         "Gene biotypes among the genes that entered the tests.")
 bt <- tab("12_biotypes")
@@ -298,7 +306,7 @@ for (d in c("figures", "tables"))
     dir.create(file.path(SHOW_DIR, d), showWarnings = FALSE, recursive = TRUE)
 
 KEEP_FIGURES <- c(
-    "11_pca", "11_normalisation_comparison", "11_venn_acute_vs_control",
+    "98_overview", "11_pca", "11_normalisation_comparison", "11_venn_acute_vs_control",
     "11_venn_acute_vs_subacute", "12_biotypes", "13_cell_fractions",
     "14_soft_threshold", "14_module_trait_heatmap", "16_ase_volcano", "16_ase_qq",
     "17_junction_ratio_vs_intronic", "17_features_heatmap", "18_power_curves",
