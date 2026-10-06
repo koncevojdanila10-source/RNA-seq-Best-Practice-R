@@ -3,6 +3,18 @@
 Every number below is read or recomputed from the pipeline's own output by
 `R/99_summarize_results.R`. Regenerate with `bash summarize_results.sh`.
 
+**Contents**
+
+- [Differential expression, three tools](#differential-expression-three-tools)
+- [Library composition differs between groups](#library-composition-differs-between-groups)
+- [Annotation and enrichment](#annotation-and-enrichment)
+- [Cell-type deconvolution](#cell-type-deconvolution)
+- [Co-expression networks](#co-expression-networks)
+- [Allele-specific expression](#allele-specific-expression)
+- [Alternative splicing](#alternative-splicing)
+- [Statistical power](#statistical-power)
+- [Within-patient contrast, paired design](#within-patient-contrast-paired-design)
+
 ## Differential expression, three tools
 
 Genes with |log2 FC| > 1 and FDR < 0.05 (`fdr`), or with raw p < 0.05 and no correction (`raw_p`).

@@ -49,8 +49,10 @@ md_table <- function(df) {
 }
 
 out <- character()
+toc <- character()
 add <- function(...) out <<- c(out, paste0(...))
 section <- function(title, caption = NULL) {
+    toc <<- c(toc, title)
     add(""); add("## ", title); add("")
     if (!is.null(caption)) { add(caption); add("") }
 }
@@ -292,6 +294,13 @@ if (length(missing_inputs)) {
     add("These inputs were not found, so their sections are absent rather than estimated: ",
         paste0("`", unique(missing_inputs), "`", collapse = ", "), ".")
 }
+
+# Contents, built from the section titles so it cannot disagree with them.
+# GitHub anchors are the lower-cased title with punctuation removed and spaces
+# turned into hyphens.
+anchor <- function(x) gsub(" ", "-", gsub("[^a-z0-9 -]", "", tolower(x)))
+out <- append(out, c("", "**Contents**", "",
+                     paste0("- [", toc, "](#", anchor(toc), ")")), after = 4)
 
 writeLines(out, file.path(PROJECT_DIR, "SUMMARY.md"))
 message("wrote ", file.path(PROJECT_DIR, "SUMMARY.md"), " (", length(out), " lines)")

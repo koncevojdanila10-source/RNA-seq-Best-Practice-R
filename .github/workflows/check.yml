@@ -1,0 +1,44 @@
+name: checks
+
+# Runs on every push. It does not re-run the analysis, which needs the upstream
+# alignments and about two hours. It checks what can be checked from the
+# repository alone: that every script parses, and that the figures README.md
+# quotes still match the result tables committed under showcase/tables.
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  checks:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Shell scripts parse
+        run: |
+          for f in *.sh; do
+            bash -n "$f" && echo "ok   $f"
+          done
+
+      - uses: r-lib/actions/setup-r@v2
+        with:
+          use-public-rspm: true
+
+      - name: Install the R packages the check needs
+        run: Rscript -e 'install.packages(c("tidyverse", "RColorBrewer"))'
+
+      - name: Every R script parses
+        run: |
+          Rscript -e 'for (f in list.files(c("R", "analyses"), "[.]R$", full.names = TRUE)) { parse(f); cat("ok  ", f, "\n") }'
+
+      - name: README matches the committed tables
+        env:
+          PROJECT_DIR: ${{ github.workspace }}
+          R_DIR: ${{ github.workspace }}/R
+          TAB_DIR: ${{ github.workspace }}/showcase/tables
+        run: Rscript R/99b_check_readme.R
