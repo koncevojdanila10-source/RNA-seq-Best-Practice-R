@@ -3,8 +3,8 @@ message: "If you use this repository, please cite it as below, and cite the orig
 title: "Downstream RNA-seq analysis on chromosome 19 (ischemic stroke PBMC)"
 type: software
 authors:
-  - family-names: "Kontsevoy"
-    given-names: "Danial"
+  - family-names: "Kolyvanova"
+    given-names: "Marina"
 repository-code: "https://github.com/koncevojdanila10-source/RNA-seq-Best-Practice-R"
 license: MIT
 date-released: 2026-10-06
