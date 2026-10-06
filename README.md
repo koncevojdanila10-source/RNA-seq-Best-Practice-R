@@ -94,6 +94,7 @@ blood. These data cannot tell either way.
 - [Scope and what the data are](#scope-and-what-the-data-are)
 - [Pipeline](#pipeline)
 - [Results](#results)
+- [Limitations and how to read the results](#limitations-and-how-to-read-the-results)
 - [Requirements](#requirements)
 - [Data](#data)
 - [Usage](#usage)
@@ -232,6 +233,28 @@ pair also removes power, so the two explanations cannot be told apart.*
 correction for the number of genes tested, so they are an upper bound. With a
 Bonferroni correction, power for a twofold change at the median gene with four
 replicates falls from 0.85 to 0.13.*
+
+## Limitations and how to read the results
+
+Questions a reader is likely to ask, and the short answers. None of them changes
+a number in `SUMMARY.md`.
+
+- **Is "confounded" the same as "no effect"?** No. Group and library
+  composition are 93% collinear, so the design cannot separate them; the result
+  is "cannot be interpreted", not "refuted".
+- **Why not correct for the intronic fraction and report what is left?** It was
+  done (296 → 4 and 471 → 5 genes), and it is reported as a demonstration of
+  the collinearity. Four or five genes after adjusting for a variable that
+  explains the group is not a stroke signature.
+- **Are the negative results a failure of the methods?** The methods behave as
+  designed; the inputs limit them (chr19 only, twelve samples, downsampled
+  reads). Deconvolution and ASE are shown as evidence of that limit, not as
+  estimates.
+- **Is the acute-versus-subacute null a finding?** Only a weak one. With four
+  pairs, power is 0.13 to 0.94 depending on assumptions, so the absence of hits
+  is not evidence of absence.
+- **Can the numbers be reproduced?** Yes: every figure in this README is
+  recomputed from the saved tables by `make check`, and CI runs it on each push.
 
 ## Requirements
 
