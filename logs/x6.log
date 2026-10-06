@@ -1,0 +1,95 @@
+
+=== x6 - paired design, within-patient contrast ===
+patient samples: 8 from 4 patients
+
+=== genotype concordance of the claimed pairs ===
+        pair concordance_nonref           called   agrees
+ D1_1 / D2_1             0.9571      same person       OK
+ D1_4 / D2_4             0.9554      same person       OK
+ D1_2 / D2_2             0.8965      same person       OK
+ D1_3 / D2_3             0.7345 different people CONFLICT
+highest concordance among pairs NOT claimed to be one person: 0.815
+pairs in conflict with the study's claim: D1_3 / D2_3
+  table  -> /root/rna_work_r/results/tables/x6_pair_identity.tsv
+
+=== library composition inside the pairs ===
+ patient acute subacute d_intronic   d_rp
+      P1  D2_1     D1_1      5.173 -4.187
+      P2  D2_2     D1_2      0.094  1.199
+      P3  D2_3     D1_3      2.676 -2.617
+      P4  D2_4     D1_4      1.159 -3.501
+  table  -> /root/rna_work_r/results/tables/x6_pair_composition.tsv
+pairs where the acute sample has MORE intronic reads: 4 of 4
+pairs where the acute sample has FEWER ribosomal reads: 3 of 4
+With four pairs the smallest two-sided sign-test p-value is 0.125, so this cannot reach significance however consistent it is. The direction is reported, not tested.
+
+=== fitting ===
+  unpaired_8: 8 samples, 1256 genes
+  paired_4: 8 samples, 1256 genes
+  paired_3: 6 samples, 1259 genes
+
+=== comparison ===
+        fit samples genes median_BCV padj_lt_0.05 and_twofold min_padj
+ unpaired_8       8  1256      0.276            0           0    0.105
+   paired_4       8  1256      0.267            0           0    0.194
+   paired_3       6  1259      0.280            0           0    0.902
+ raw_p_lt_0.05_pct
+               9.1
+              10.8
+               4.5
+  table  -> /root/rna_work_r/results/tables/x6_fit_comparison.tsv
+
+under the null, about 5% of raw p-values fall below 0.05; a much larger share means real signal or a miscalibrated model
+paired / unpaired BCV ratio (all four pairs): 0.967
+  -> pairing helps a little
+
+=== power at the paired model's residual variability ===
+        fit pairs_or_per_group   BCV power_no_correction power_bonferroni
+ unpaired_8                  4 0.276               0.923            0.235
+   paired_4                  4 0.267               0.938            0.270
+   paired_3                  3 0.280               0.826            0.113
+  table  -> /root/rna_work_r/results/tables/x6_power.tsv
+
+=== top genes in each fit ===
+
+unpaired_8:
+ symbol log2FC        p  padj ribosomal
+          2.06 8.38e-05 0.105     FALSE
+          0.90 2.20e-04 0.126     FALSE
+ ZNF234   1.07 3.08e-04 0.126     FALSE
+  CD177   2.97 4.02e-04 0.126     FALSE
+ ZNF699   0.72 1.33e-03 0.333     FALSE
+         -1.71 2.20e-03 0.428     FALSE
+ ZNF227   0.62 2.38e-03 0.428     FALSE
+ ZNF225   0.85 2.75e-03 0.432     FALSE
+
+paired_4:
+ symbol log2FC        p  padj ribosomal
+  CD177   2.71 0.000268 0.194     FALSE
+   MATK  -0.79 0.000528 0.194     FALSE
+ ZNF234   1.10 0.000882 0.194     FALSE
+   NKG7  -0.68 0.000893 0.194     FALSE
+         -1.87 0.000910 0.194     FALSE
+          2.09 0.001060 0.194     FALSE
+   FPR2   0.92 0.001080 0.194     FALSE
+          0.90 0.001310 0.205     FALSE
+
+paired_3:
+   symbol log2FC       p  padj ribosomal
+            1.33 0.00242 0.902     FALSE
+   ZNF234   1.12 0.00836 0.902     FALSE
+            2.15 0.00855 0.902     FALSE
+           -1.30 0.00877 0.902     FALSE
+ SIGLEC14   0.92 0.00990 0.902     FALSE
+ ARHGAP35   0.66 0.01070 0.902     FALSE
+           -1.49 0.01120 0.902     FALSE
+     MATK  -0.65 0.01120 0.902     FALSE
+  table  -> /root/rna_work_r/results/tables/x6_top_genes.tsv
+
+median log2FC of the 12 ribosomal protein genes, acute vs subacute:
+unpaired_8   paired_4   paired_3 
+    -0.336     -0.378     -0.387 
+negative = lower in acute, the direction composition predicts
+  figure -> /root/rna_work_r/results/figures/x6_pvalue_histograms.png
+
+=== x6 done ===

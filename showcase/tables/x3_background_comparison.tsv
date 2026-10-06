@@ -1,0 +1,15 @@
+contrast	database	degs	ours	genome	shared	only_ours	only_genome
+acute_vs_control	geneontology_Biological_Process	296	25	14	12	13	2
+acute_vs_control	geneontology_Cellular_Component	296	7	8	5	2	3
+acute_vs_control	geneontology_Molecular_Function	296	4	1	1	3	0
+acute_vs_control	pathway_KEGG	296	1	1	1	0	0
+acute_vs_control	pathway_Reactome	296	32	34	25	7	9
+acute_vs_control	network_miRNA_target	296	0	0	0	0	0
+acute_vs_control	network_Transcription_Factor_target	296	0	0	0	0	0
+subacute_vs_control	geneontology_Biological_Process	471	12	11	11	1	0
+subacute_vs_control	geneontology_Cellular_Component	471	3	8	3	0	5
+subacute_vs_control	geneontology_Molecular_Function	471	2	1	1	1	0
+subacute_vs_control	pathway_KEGG	471	1	1	1	0	0
+subacute_vs_control	pathway_Reactome	471	28	28	24	4	4
+subacute_vs_control	network_miRNA_target	471	0	0	0	0	0
+subacute_vs_control	network_Transcription_Factor_target	471	0	1	0	0	1

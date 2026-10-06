@@ -1,0 +1,95 @@
+
+=== 17 - alternative splicing with SGSeq ===
+
+=== reading BAM headers ===
+  si: from cache
+ sample_name paired_end read_length frag_length lib_size
+        D1_1       TRUE         150         382   874469
+        D1_2       TRUE         150         389   940636
+        D1_3       TRUE         150         389  1003812
+        D1_4       TRUE         150         394  1002259
+        D2_1       TRUE         150         374   726443
+        D2_2       TRUE         150         384   941589
+        D2_3       TRUE         150         392   903612
+        D2_4       TRUE         150         382   852584
+        NC_1       TRUE         150         339   761992
+        NC_3       TRUE         150         340   689685
+        NC_4       TRUE         150         325   696996
+        NC_5       TRUE         150         347   656663
+
+=== transcript features ===
+  txf_chr19: from cache
+transcript features: 93264
+
+=== splice graphs, variants and counts ===
+This is the long stage. On twelve BAMs expect tens of minutes.
+  sgfc: from cache
+features with counts: 115821
+  sgvc_pred: from cache
+splice variants predicted: 18366
+  sgvc: from cache
+event count matrix: 18366 events x 12 samples
+
+=== differential splicing, limma-voom ===
+events after filtering: 4774 of 18366
+  acute_vs_control: 1068 significant events of 4774
+  table  -> /root/rna_work_r/results/tables/17_splicing_acute_vs_control.tsv
+  subacute_vs_control: 1584 significant events of 4774
+  table  -> /root/rna_work_r/results/tables/17_splicing_subacute_vs_control.tsv
+  acute_vs_subacute: 0 significant events of 4774
+  table  -> /root/rna_work_r/results/tables/17_splicing_acute_vs_subacute.tsv
+            contrast events_tested significant
+    acute_vs_control          4774        1068
+ subacute_vs_control          4774        1584
+   acute_vs_subacute          4774           0
+  table  -> /root/rna_work_r/results/tables/17_splicing_summary.tsv
+
+=== visualising the top event ===
+using the strongest contrast: subacute_vs_control
+top eventID: 2196
+top gene:    ENSG00000233927.7
+  figure -> /root/rna_work_r/results/figures/17_top_variant.png
+  figure -> /root/rna_work_r/results/figures/17_splice_graph.png
+  figure -> /root/rna_work_r/results/figures/17_features_heatmap.png
+
+=== novel features against library composition ===
+ sample    group novel_pct intronic_pct events_detected
+   D1_1 subacute     0.002        9.030           48069
+   D1_2 subacute     0.003        7.337           45148
+   D1_3 subacute     0.002        7.807           53651
+   D1_4 subacute     0.002        8.468           51494
+   D2_1    acute     0.002       14.203           51198
+   D2_2    acute     0.002        7.431           41537
+   D2_3    acute     0.003       10.483           48673
+   D2_4    acute     0.002        9.627           52389
+   NC_1  control     0.003       21.201           55434
+   NC_3  control     0.003       24.110           54256
+   NC_4  control     0.003       23.009           54007
+   NC_5  control     0.003       26.990           55094
+novel features: 8 of 115821
+  NOTE: only 8 novel features exist because analyzeFeatures ran in annotation-based mode. The correlation below is void, not negative.
+novel feature share vs intronic fraction: rho = 0.531  p = 0.0756   [void, see note above]
+events detected      vs intronic fraction: rho = 0.769  p = 0.00525
+
+=== junction reads against exon reads ===
+feature types: A=22577, D=21391, E=36663, J=35190
+ sample    group intronic_pct junction_exon_ratio
+   D1_1 subacute        9.030              0.2435
+   D1_2 subacute        7.337              0.2466
+   D1_3 subacute        7.807              0.2439
+   D1_4 subacute        8.468              0.2458
+   D2_1    acute       14.203              0.2549
+   D2_2    acute        7.431              0.2416
+   D2_3    acute       10.483              0.2472
+   D2_4    acute        9.627              0.2591
+   NC_1  control       21.201              0.2686
+   NC_3  control       24.110              0.2546
+   NC_4  control       23.009              0.2550
+   NC_5  control       26.990              0.2499
+  table  -> /root/rna_work_r/results/tables/17_novel_vs_composition.tsv
+junction/exon ratio vs intronic fraction: rho = 0.664  p = 0.0222
+  figure -> /root/rna_work_r/results/figures/17_junction_ratio_vs_intronic.png
+-> Read this with the caveat in the comment above: annotated exon bins exclude intronic reads, so this ratio cannot see intron retention.
+   The correlation is positive, the opposite of what the splicing-efficiency reading would predict. Its cause is not established, and it is not used as evidence either way.
+
+=== 17 done ===

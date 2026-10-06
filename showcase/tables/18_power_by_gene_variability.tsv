@@ -1,0 +1,4 @@
+gene_quantile	cv	power_n4	n_for_80pct
+median	0.317	0.847	4
+75th percentile	0.372	0.728	5
+90th percentile	0.573	0.394	11

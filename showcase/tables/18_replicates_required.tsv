@@ -1,0 +1,10 @@
+FoldChange	CV	n_needed	have	enough
+1.5	0.32	11	4	FALSE
+2	0.32	4	4	TRUE
+3	0.32	2	4	TRUE
+1.5	0.4	16	4	FALSE
+2	0.4	6	4	FALSE
+3	0.4	3	4	TRUE
+1.5	0.8	62	4	FALSE
+2	0.8	22	4	FALSE
+3	0.8	9	4	FALSE

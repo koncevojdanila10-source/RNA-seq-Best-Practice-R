@@ -1,0 +1,60 @@
+
+=== 14 - WGCNA co-expression network ===
+Allowing multi-threading with up to 5 threads.
+input: 12 samples x 1109 genes
+
+=== checking for bad genes and samples ===
+all OK: TRUE
+
+=== choosing the soft threshold ===
+ power signed_R2 connectivity
+     1 -0.741543        472.8
+     2  0.000301        277.5
+     3  0.638274        186.6
+     4  0.838746        135.6
+     5  0.882711        103.5
+     6  0.904152         81.9
+     7  0.921904         66.5
+     8  0.948260         55.1
+     9  0.942080         46.3
+    10  0.953054         39.5
+    11  0.971398         34.1
+    12  0.963668         29.7
+    13  0.927959         26.0
+    14  0.936330         23.0
+    15  0.931990         20.5
+    16  0.943392         18.3
+    18  0.946890         14.8
+    20  0.954588         12.2
+  table  -> /root/rna_work_r/results/tables/14_soft_threshold.tsv
+first power reaching signed R2 >= 0.85: 5
+
+=== building the network ===
+modules found: 3 plus the grey bin of unassigned genes
+    module genes
+ turquoise   701
+      blue   235
+      grey    97
+     brown    76
+  table  -> /root/rna_work_r/results/tables/14_module_sizes.tsv
+unassigned (grey): 97 genes, 9% of the input
+  table  -> /root/rna_work_r/results/tables/14_gene_modules.tsv
+
+=== module-trait relationships ===
+module-trait tests: 28;  raw p < 0.05: 11;  BH q < 0.05: 10
+      module        trait    rho        p     q_BH
+ MEturquoise intronic_pct -0.979 3.09e-08 4.33e-07
+ MEturquoise   exonic_pct  0.979 3.09e-08 4.33e-07
+ MEturquoise library_size  0.930 1.17e-05 1.09e-04
+ MEturquoise  rp_fraction  0.867 2.60e-04 1.82e-03
+      MEblue  rp_fraction -0.860 3.32e-04 1.86e-03
+ MEturquoise      control -0.819 1.11e-03 5.18e-03
+      MEblue intronic_pct  0.748 5.12e-03 1.79e-02
+      MEblue   exonic_pct -0.748 5.12e-03 1.79e-02
+ MEturquoise     subacute  0.717 8.69e-03 2.43e-02
+      MEblue      control  0.717 8.69e-03 2.43e-02
+      MEblue library_size -0.643 2.40e-02 6.11e-02
+     MEbrown     subacute -0.563 5.65e-02 1.32e-01
+  table  -> /root/rna_work_r/results/tables/14_module_trait.tsv
+
+=== 14 done ===

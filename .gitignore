@@ -1,0 +1,61 @@
+# Heavy, regenerable outputs. Everything here is reproduced by run_all.sh from
+# the upstream pipeline's output plus the scripts in R/ and analyses/.
+#
+# No trailing slashes on these: if a path is ever a WSL symlink, a trailing
+# slash makes `git add` fail outright with "Function not implemented".
+/results
+/data
+/work
+
+# R session state — never committed. Day-to-day these are hundreds of MB.
+*.RData
+*.rda
+*.rds
+*.Rds
+*.RDS
+.Rhistory
+.Rapp.history
+.RData
+.Ruserdata
+.Rproj.user/
+*.Rproj
+
+# WGCNA writes topological overlap matrices next to the working directory.
+*-block.*.RData
+*.TOM
+TOM-block.*
+
+# Alignment and variant files, in case anything is ever copied in by hand.
+*.bam
+*.bai
+*.sam
+*.cram
+*.fastq
+*.fastq.gz
+*.fq.gz
+*.vcf
+*.vcf.gz
+*.vcf.gz.tbi
+*.fa
+*.fasta
+*.gtf
+*.gff
+*.gff3
+
+# WebGestaltR writes a directory of HTML reports per database. The small
+# summaries we keep are copied into showcase/ by summarize_results.R.
+/WG
+Project_*/
+
+# Logs are committed on purpose — they are the record of how each number was
+# reached — but not the noisy per-worker ones.
+logs/*.tmp
+logs/*.part
+
+# Editors and OS litter
+.Rprofile.local
+.DS_Store
+Thumbs.db
+*~
+*.swp
+__pycache__/

@@ -1,0 +1,120 @@
+
+=== 15 - BioNERO co-expression network ===
+input: 1109 genes x 12 samples
+no variance filter applied: the whole matrix is smaller than the course's 5000-gene cut, and step 14 used all of it
+
+=== scale-free fit across network types and correlation methods ===
+  unsigned / pearson: converged at power 4
+  signed / pearson: converged at power 7
+  signed hybrid / pearson: converged at power 3
+  unsigned / spearman: converged at power 5
+  signed / spearman: converged at power 9
+  signed hybrid / spearman: converged at power 4
+      net_type cor_method power converged
+      unsigned    pearson     4      TRUE
+        signed    pearson     7      TRUE
+ signed hybrid    pearson     3      TRUE
+      unsigned   spearman     5      TRUE
+        signed   spearman     9      TRUE
+ signed hybrid   spearman     4      TRUE
+  table  -> /root/rna_work_r/results/tables/15_sft_by_network_type.tsv
+BioNERO's own choice:  unsigned / spearman at power 5
+step 14 (WGCNA) used:  unsigned / pearson at power 5
+
+=== building the BioNERO networks ===
+  BioNERO default: unsigned / spearman power 5
+..connectivity..
+..matrix multiplication (system BLAS)..
+..normalization..
+..done.
+  matched to step 14: unsigned / pearson power 5
+..connectivity..
+..matrix multiplication (system BLAS)..
+..normalization..
+..done.
+BioNERO modules (own settings): 6
+ module genes
+   blue   292
+   pink   213
+  black   200
+    red   176
+  green   153
+   grey    75
+  table  -> /root/rna_work_r/results/tables/15_module_sizes.tsv
+  table  -> /root/rna_work_r/results/tables/15_gene_modules.tsv
+  table  -> /root/rna_work_r/results/tables/15_gene_modules_matched.tsv
+
+=== hub genes ===
+hub genes: 61 across 5 modules  (columns: Gene, Module, kWithin)
+       Gene Module  kWithin
+        CIC  black 51.87359
+      DOT1L  black 49.14593
+      TSHZ3  black 48.82427
+      MLLT1  black 48.53755
+       ZNF8  black 48.50961
+     ZNF404  black 48.27592
+   MZF1-AS1  black 47.26903
+       RCN3  black 46.80635
+       NFIC  black 44.92207
+     ZNF549   blue 83.13877
+     LSM14A   blue 82.87648
+ ZNF606-AS1   blue 82.56916
+     ZNF850   blue 78.92035
+      IGFL4   blue 78.74314
+     ZNF317   blue 77.18242
+  table  -> /root/rna_work_r/results/tables/15_hub_genes.tsv
+hub genes from the zinc-finger families: 26 of 61 (43%)
+  table  -> /root/rna_work_r/results/tables/15_hub_zinc_finger_share.tsv
+
+=== WGCNA against BioNERO ===
+genes in both partitions: 1109
+
+matched settings (unsigned / pearson / power 5) - implementation only
+  BioNERO modules: 9   WGCNA modules: 4
+  adjusted Rand index: 0.271
+          black blue brown green grey magenta pink red yellow
+blue         26    8    13    14    2       0  119  49      4
+brown        34    4    18    10    3       0    0   2      5
+grey          1   17     1    24   31       0    0   6     17
+turquoise    83    1     3    10    0     372  182  33     17
+
+each package's own settings - what the manuals would give you
+  BioNERO modules: 6   WGCNA modules: 4
+  adjusted Rand index: 0.091
+          black blue green grey pink red
+blue         37   30    46   13   64  45
+brown         1   11    32    8   24   0
+grey          0    1     7   26   63   0
+turquoise   162  250    68   28   62 131
+  table  -> /root/rna_work_r/results/tables/15_module_crosstab.tsv
+             comparison bionero_cor bionero_power bionero_modules wgcna_modules
+       matched settings     pearson             5               9             4
+ each package's default    spearman             5               6             4
+ genes_compared adjusted_rand
+           1109        0.2712
+           1109        0.0911
+  table  -> /root/rna_work_r/results/tables/15_partition_agreement.tsv
+
+=== reading the two numbers ===
+Implementation alone (matched settings): ARI = 0.271
+Settings and implementation together:   ARI = 0.091
+-> The partitions disagree even at identical settings. With 12 samples the correlation matrix is estimated too imprecisely for module boundaries to be reproducible, so individual module membership here should not be treated as a finding.
+
+=== does the composition association reproduce? ===
+  module        trait    rho     q_BH
+ MEblack  rp_fraction -0.958 2.00e-05
+   MEred  rp_fraction  0.958 2.00e-05
+ MEblack intronic_pct  0.937 4.90e-05
+   MEred intronic_pct -0.937 4.90e-05
+ MEblack   exonic_pct -0.937 4.90e-05
+   MEred   exonic_pct  0.937 4.90e-05
+  MEgrey intronic_pct  0.923 9.78e-05
+  MEgrey   exonic_pct -0.923 9.78e-05
+  table  -> /root/rna_work_r/results/tables/15_module_trait_bionero.tsv
+
+strongest |rho| with intronic fraction:
+  WGCNA:   0.979
+  BioNERO: 0.937
+-> Both find a module tracking library composition almost perfectly. The partition is unstable; this association is not.
+
+=== 15 done ===

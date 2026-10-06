@@ -1,0 +1,78 @@
+
+=== x4 - is the ASE signal biology or genotyping? ===
+
+=== how many heterozygous calls look like miscalls? ===
+sites at depth >= 10: 53405
+ sample    group genes significant pct_significant median_MAF sites median_alt
+   D1_1 subacute   373         160            42.9     0.6641  2089     0.2778
+   D1_2 subacute   274         103            37.6     0.6669  1246     0.3125
+   D1_3 subacute   461         218            47.3     0.6875  3015     0.2800
+   D1_4 subacute   412         189            45.9     0.6747  2747     0.2857
+   D2_1    acute   486         256            52.7     0.7145  4279     0.2308
+   D2_2    acute   220          91            41.4     0.6945   912     0.3000
+   D2_3    acute   374         161            43.0     0.6794  2181     0.2857
+   D2_4    acute   484         239            49.4     0.6927  3638     0.2667
+   NC_1  control   637         436            68.4     0.7353  8456     0.2381
+   NC_3  control   624         388            62.2     0.7352  8128     0.2222
+   NC_4  control   608         377            62.0     0.7431  8125     0.2083
+   NC_5  control   566         362            64.0     0.7377  8589     0.2000
+ pct_below_0.4 pct_genuine_het intronic_pct
+          63.0            37.0        9.030
+          60.2            39.8        7.337
+          65.7            34.3        7.807
+          64.7            35.3        8.468
+          71.0            29.0       14.203
+          61.8            38.2        7.431
+          64.7            35.3       10.483
+          67.2            32.8        9.627
+          71.1            28.9       21.201
+          72.6            27.4       24.110
+          73.2            26.8       23.009
+          74.2            25.8       26.990
+  table  -> /root/rna_work_r/results/tables/x4_per_sample.tsv
+
+=== what the per-sample ASE rate tracks ===
+  %significant vs pct_below_0.4  rho = 0.949  p = 2.44e-06
+  %significant vs intronic_pct   rho = 0.874  p = 0.000309
+  %significant vs sites          rho = 0.986  p = 4.12e-09 [exact routine underflowed; asymptotic approximation]
+  median MAF     vs miscall rate:  rho = 0.865  p = 0.000279
+  figure -> /root/rna_work_r/results/figures/x4_ase_vs_miscall.png
+Warning message:
+The following aesthetics were dropped during statistical transformation: label.
+ℹ This can happen when ggplot fails to infer the correct grouping structure in
+  the data.
+ℹ Did you forget to specify a `group` aesthetic or to convert a numerical
+  variable into a factor? 
+
+=== allele fractions of significant against non-significant genes ===
+genes matched between MBASED and the site tables: 5249
+   sig genes median_mean_alt median_min_alt pct_with_a_site_below_0.1
+ FALSE  2389          0.4827         0.4286                       0.6
+  TRUE  2860          0.2772         0.0769                      57.8
+  table  -> /root/rna_work_r/results/tables/x4_significant_vs_allele_fraction.tsv
+minimum alternate fraction, significant vs not: Wilcoxon p = <1e-300
+  figure -> /root/rna_work_r/results/figures/x4_min_alt_by_significance.png
+
+=== MBASED against the upstream per-site binomial test ===
+       binomial
+MBASED  FALSE TRUE
+  FALSE   921   91
+  TRUE    160 2058
+gene-sample pairs compared: 3230
+MBASED significant:   2218  binomial significant: 2149
+Jaccard index: 0.891
+Both methods take the heterozygous calls on trust, so this agreement measures how similarly they respond to the same bad input - it is not independent confirmation.
+  table  -> /root/rna_work_r/results/tables/x4_mbased_vs_binomial.tsv
+
+=== verdict ===
+Per-sample ASE rate against miscall rate: rho = 0.949  p = 2.44e-06
+Significant genes carry a lowest alternate fraction of 0.0769 against 0.4286 for the rest.
+
+Both predictions of the genotyping hypothesis hold. The imbalance MBASED reports is a property of the variant calls, not of allelic
+regulation, and it cannot be filtered away: the genotypes were derived from the same reads the expression is measured in, so any
+filter that removes the doubtful calls also removes the evidence. ASE is NOT assessable on this dataset - the same verdict the
+upstream pipeline reached, now reproduced by a second method with a different statistical model.
+
+Assessing it properly needs genotypes from an orthogonal source: DNA from the same individuals, or at minimum an external panel.
+
+=== x4 done ===

@@ -1,0 +1,88 @@
+
+=== 18 - power analysis on measured parameters ===
+
+=== coefficient of variation, measured per group ===
+    group samples genes cv_median cv_q25 cv_q75 cv_q90
+  control       4  1210     0.232  0.143  0.357  0.518
+    acute       4  1192     0.278  0.183  0.413  0.618
+ subacute       4  1173     0.203  0.125  0.330  0.528
+  table  -> /root/rna_work_r/results/tables/18_measured_cv.tsv
+
+median within-group CV, patients only: 0.241
+median within-group CV, all groups:    0.232
+for reference, the course used 0.4 as a value typical of mice; human cohorts are usually quoted at 0.8 and above
+
+=== cross-check: edgeR's biological coefficient of variation ===
+Loading required namespace: edgeR
+naive CV of normalised counts (median gene): 0.241
+edgeR common BCV:                            0.317
+edgeR trended BCV (median gene):             0.307
+edgeR tagwise BCV (median gene):             0.279
+  table  -> /root/rna_work_r/results/tables/18_cv_estimators.tsv
+
+The naive CV is well below edgeR's: it cannot be smaller than the biological component it contains, so it is an underestimate.
+Using edgeR's common BCV instead for everything below.
+CV at the 75th percentile of genes: 0.372
+CV at the 90th percentile of genes: 0.573
+median per-gene depth among expressed genes: 133 counts
+
+=== power curves ===
+  figure -> /root/rna_work_r/results/figures/18_power_curves.png
+  table  -> /root/rna_work_r/results/tables/18_power_grid.tsv
+
+=== replicates required for 80% power ===
+ FoldChange   CV n_needed have enough
+        1.5 0.32       11    4  FALSE
+        2.0 0.32        4    4   TRUE
+        3.0 0.32        2    4   TRUE
+        1.5 0.40       16    4  FALSE
+        2.0 0.40        6    4  FALSE
+        3.0 0.40        3    4   TRUE
+        1.5 0.80       62    4  FALSE
+        2.0 0.80       22    4  FALSE
+        3.0 0.80        9    4  FALSE
+  table  -> /root/rna_work_r/results/tables/18_replicates_required.tsv
+
+=== the within-patient contrast ===
+acute vs subacute is the one contrast free of the composition confounder (see analyses/x2_confounder.R).
+  replicates available:        4
+  measured CV in those groups: 0.317
+  depth used:                  133 counts
+  DEGs actually found:         2
+  power at a twofold effect:   0.846
+  replicates for 80% power:    4
+
+power at a twofold effect, by how variable the gene is:
+   gene_quantile    cv power_n4 n_for_80pct
+          median 0.317    0.847           4
+ 75th percentile 0.372    0.728           5
+ 90th percentile 0.573    0.394          11
+  table  -> /root/rna_work_r/results/tables/18_power_by_gene_variability.tsv
+
+power at a twofold effect, median gene, by multiple-testing assumption:
+                                              assumption        alpha power_n4
+ no correction: alpha = 0.05 per test (as in the course) 5.000000e-02    0.846
+                         Bonferroni: alpha = 0.05 / 1292 3.869969e-05    0.128
+ n_for_80pct
+           4
+          12
+  table  -> /root/rna_work_r/results/tables/18_power_by_alpha.tsv
+
+Power at a twofold change, median gene, 4 replicates per group:
+  upper bound (no correction):  0.846
+  lower bound (Bonferroni):     0.128
+
+The lower bound is far below 0.8, and the real figure for an FDR procedure lies somewhere between the two. The power of this
+experiment to detect a twofold change in a typical gene is therefore NOT ESTABLISHED, and it is poor for the more variable
+genes whichever end is taken. The near-empty result for this contrast cannot be read as evidence of no change over time, and
+the 2 genes found cannot be read as a finding either. Both are what an experiment this size can produce with or without an effect.
+This is power at a twofold change only; a smaller true change is not excluded by any of these numbers.
+
+=== would more sequencing have helped? ===
+  depth     133 counts -> power 0.846
+  depth     266 counts -> power 0.858
+  depth    1330 counts -> power 0.868
+  depth   13300 counts -> power 0.870
+Depth saturates: within-group variability and sample size are what bind here, exactly as the lecture's four levers predict.
+
+=== 18 done ===

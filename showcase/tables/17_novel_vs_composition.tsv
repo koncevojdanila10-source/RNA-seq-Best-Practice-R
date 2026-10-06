@@ -1,0 +1,13 @@
+sample	group	novel_pct	intronic_pct	events_detected	junction_exon_ratio
+D1_1	subacute	0.002	9.03	48069	0.2435
+D1_2	subacute	0.003	7.337	45148	0.2466
+D1_3	subacute	0.002	7.807	53651	0.2439
+D1_4	subacute	0.002	8.468	51494	0.2458
+D2_1	acute	0.002	14.203	51198	0.2549
+D2_2	acute	0.002	7.431	41537	0.2416
+D2_3	acute	0.003	10.483	48673	0.2472
+D2_4	acute	0.002	9.627	52389	0.2591
+NC_1	control	0.003	21.201	55434	0.2686
+NC_3	control	0.003	24.11	54256	0.2546
+NC_4	control	0.003	23.009	54007	0.255
+NC_5	control	0.003	26.99	55094	0.2499

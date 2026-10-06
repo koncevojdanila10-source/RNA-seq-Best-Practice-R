@@ -1,0 +1,4 @@
+fit	samples	genes	median_BCV	padj_lt_0.05	and_twofold	min_padj	raw_p_lt_0.05_pct
+unpaired_8	8	1256	0.276	0	0	0.105	9.1
+paired_4	8	1256	0.267	0	0	0.194	10.8
+paired_3	6	1259	0.28	0	0	0.902	4.5

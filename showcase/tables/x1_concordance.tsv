@@ -1,0 +1,10 @@
+contrast	pair	genes	spearman_lfc	jaccard_deg	n_deg_1	n_deg_2
+acute_vs_control	DESeq2 vs edgeR	1284	0.9999534426491011	0.9566666666666667	296	291
+acute_vs_control	DESeq2 vs limma	1284	0.9895786191275656	0.8721311475409836	296	275
+acute_vs_control	edgeR vs limma	1284	0.9894282841773853	0.8741721854304636	291	275
+subacute_vs_control	DESeq2 vs edgeR	1284	0.999977835231704	0.9456066945606695	471	459
+subacute_vs_control	DESeq2 vs limma	1284	0.9915098960446856	0.9026915113871635	471	448
+subacute_vs_control	edgeR vs limma	1284	0.9915716116028536	0.9256900212314225	459	448
+acute_vs_subacute	DESeq2 vs edgeR	1284	0.9997978641156282	0	2	0
+acute_vs_subacute	DESeq2 vs limma	1284	0.9590802947642083	0	2	0
+acute_vs_subacute	edgeR vs limma	1284	0.9600252111484701	NA	0	0

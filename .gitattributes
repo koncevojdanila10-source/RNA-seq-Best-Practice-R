@@ -1,0 +1,24 @@
+# Shell and R scripts must keep LF endings. Checked out through Windows with
+# CRLF, a shell script fails with "bad interpreter: /usr/bin/env bash^M" and an
+# R script breaks on multi-line strings.
+*.sh   text eol=lf
+*.R    text eol=lf
+*.r    text eol=lf
+*.py   text eol=lf
+
+# Plain text and data files: normalise on commit, LF on checkout.
+*.md   text eol=lf
+*.tsv  text eol=lf
+*.csv  text eol=lf
+*.txt  text eol=lf
+*.yml  text eol=lf
+
+# Binary — never touch these.
+*.png  binary
+*.pdf  binary
+*.gz   binary
+*.rds  binary
+*.RData binary
+
+# Generated reports should not skew the repository language statistics.
+showcase/**/*.html linguist-documentation

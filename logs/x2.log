@@ -1,0 +1,52 @@
+
+=== x2 - library composition as a confounder ===
+
+=== group separation by intronic fraction ===
+patients: 7.3-14.2%
+controls: 21.2-27.0%
+separation is COMPLETE - no overlap (gap 7.0 percentage points)
+Wilcoxon control vs patient: p = 0.00404  (n = 4 vs 8, so 0.00404 is the smallest p this test can return)
+variance in intronic fraction explained by group: R2 = 0.93
+
+=== ribosomal protein share against intronic fraction ===
+ribosomal protein genes among the 1292 tested: 12 (RPL13A, RPL18, RPL18A, RPL28, RPL36, RPS11, RPS15, RPS16 ...)
+ sample    group intronic_pct rp_fraction
+   D1_1 subacute        9.030   14.048949
+   D1_2 subacute        7.337   14.755954
+   D1_3 subacute        7.807   16.056399
+   D1_4 subacute        8.468   14.605223
+   D2_1    acute       14.203    9.861460
+   D2_2    acute        7.431   15.955047
+   D2_3    acute       10.483   13.439438
+   D2_4    acute        9.627   11.103773
+   NC_1  control       21.201    4.712699
+   NC_3  control       24.110    5.067800
+   NC_4  control       23.009    5.950362
+   NC_5  control       26.990    6.661989
+
+all 12 samples:      rho = -0.902  p = 6e-05 [exact routine underflowed; asymptotic approximation]
+patients only (n = 8): rho = -0.881  p = 0.00724
+  table  -> /root/rna_work_r/results/tables/x2_composition.tsv
+  figure -> /root/rna_work_r/results/figures/x2_rp_vs_intronic.png
+
+=== over-representation of RP genes among DEGs ===
+  acute_vs_control: 11 of 12 RP genes are DEGs, OR = 38.29, p = 7.54e-07, median log2FC = 1.43
+  subacute_vs_control: 11 of 12 RP genes are DEGs, OR = 19.57, p = 0.000113, median log2FC = 1.8
+  acute_vs_subacute: 0 of 12 RP genes are DEGs, OR = 0, p = 1, median log2FC = -0.33
+  table  -> /root/rna_work_r/results/tables/x2_rp_enrichment.tsv
+
+=== refitting with intronic fraction as a covariate ===
+NOTE: intronic fraction is 93% explained by group. A covariate that close to the grouping removes
+      the group effect largely by construction, so a collapse below is
+      evidence that the two are inseparable here - not that the
+      biological difference has been refuted.
+  acute_vs_control: 296 -> 4 DEGs
+  subacute_vs_control: 471 -> 5 DEGs
+  acute_vs_subacute: 2 -> 1 DEGs
+             contrast deg_uncorrected deg_with_covariate retained_pct
+1    acute_vs_control             296                  4          1.4
+2 subacute_vs_control             471                  5          1.1
+3   acute_vs_subacute               2                  1         50.0
+  table  -> /root/rna_work_r/results/tables/x2_deg_with_covariate.tsv
+
+=== x2 done ===

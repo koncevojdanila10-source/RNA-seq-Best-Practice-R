@@ -1,0 +1,3 @@
+sig	genes	median_mean_alt	median_min_alt	pct_with_a_site_below_0.1
+FALSE	2389	0.4827	0.4286	0.6
+TRUE	2860	0.2772	0.0769	57.8

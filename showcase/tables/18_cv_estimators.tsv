@@ -1,0 +1,5 @@
+estimator	value
+naive CV of normalised counts	0.2405
+edgeR common	0.3174
+edgeR trended (median)	0.3074
+edgeR tagwise (median)	0.2793

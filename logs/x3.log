@@ -1,0 +1,118 @@
+
+=== x3 - ORA background: chromosome 19 against whole genome ===
+genes in our background: 1292
+
+=== A. real DEG lists ===
+acute_vs_control: 296 DEGs
+  geneontology_Biological_Process        ours  25 | genome  14 | shared  12 | only genome   2
+  geneontology_Cellular_Component        ours   7 | genome   8 | shared   5 | only genome   3
+  geneontology_Molecular_Function        ours   4 | genome   1 | shared   1 | only genome   0
+  pathway_KEGG                           ours   1 | genome   1 | shared   1 | only genome   0
+  pathway_Reactome                       ours  32 | genome  34 | shared  25 | only genome   9
+  network_miRNA_target                   ours   0 | genome   0 | shared   0 | only genome   0
+  network_Transcription_Factor_target    ours   0 | genome   0 | shared   0 | only genome   0
+subacute_vs_control: 471 DEGs
+  geneontology_Biological_Process        ours  12 | genome  11 | shared  11 | only genome   0
+  geneontology_Cellular_Component        ours   3 | genome   8 | shared   3 | only genome   5
+  geneontology_Molecular_Function        ours   2 | genome   1 | shared   1 | only genome   0
+  pathway_KEGG                           ours   1 | genome   1 | shared   1 | only genome   0
+  pathway_Reactome                       ours  28 | genome  28 | shared  24 | only genome   4
+  network_miRNA_target                   ours   0 | genome   0 | shared   0 | only genome   0
+  network_Transcription_Factor_target    ours   0 | genome   1 | shared   0 | only genome   1
+            contrast                            database degs ours genome
+    acute_vs_control     geneontology_Biological_Process  296   25     14
+    acute_vs_control     geneontology_Cellular_Component  296    7      8
+    acute_vs_control     geneontology_Molecular_Function  296    4      1
+    acute_vs_control                        pathway_KEGG  296    1      1
+    acute_vs_control                    pathway_Reactome  296   32     34
+    acute_vs_control                network_miRNA_target  296    0      0
+    acute_vs_control network_Transcription_Factor_target  296    0      0
+ subacute_vs_control     geneontology_Biological_Process  471   12     11
+ subacute_vs_control     geneontology_Cellular_Component  471    3      8
+ subacute_vs_control     geneontology_Molecular_Function  471    2      1
+ subacute_vs_control                        pathway_KEGG  471    1      1
+ subacute_vs_control                    pathway_Reactome  471   28     28
+ subacute_vs_control                network_miRNA_target  471    0      0
+ subacute_vs_control network_Transcription_Factor_target  471    0      1
+ shared only_ours only_genome
+     12        13           2
+      5         2           3
+      1         3           0
+      1         0           0
+     25         7           9
+      0         0           0
+      0         0           0
+     11         1           0
+      3         0           5
+      1         1           0
+      1         0           0
+     24         4           4
+      0         0           0
+      0         0           1
+  table  -> /root/rna_work_r/results/tables/x3_background_comparison.tsv
+  table  -> /root/rna_work_r/results/tables/x3_only_genome_terms.tsv
+
+terms reported ONLY under the genome background: 24
+  matching the zinc-finger / transcription vocabulary: 0 (0%)
+  the same words among the terms found under OUR background: 2% (115 terms)
+
+strongest of them:
+            contrast                                                 term ratio
+    acute_vs_control Formation of the ternary complex, and subsequently,   13.0
+    acute_vs_control             Translation initiation complex formation  11.5
+    acute_vs_control       Ribosomal scanning and start codon recognition  11.5
+    acute_vs_control Activation of the mRNA upon binding of the cap-bindi  11.3
+ subacute_vs_control Formation of the ternary complex, and subsequently,    9.5
+ subacute_vs_control             Translation initiation complex formation   8.4
+ subacute_vs_control       Ribosomal scanning and start codon recognition   8.4
+    acute_vs_control                    cytosolic small ribosomal subunit  14.8
+ subacute_vs_control Activation of the mRNA upon binding of the cap-bindi   8.2
+ subacute_vs_control                    cytosolic small ribosomal subunit  11.0
+    acute_vs_control                              small ribosomal subunit  10.2
+ subacute_vs_control                              small ribosomal subunit   7.5
+ subacute_vs_control                           secretory granule membrane   3.2
+ subacute_vs_control                                       cytosolic part   3.4
+     FDR zf_vocabulary
+ 1.0e-05         FALSE
+ 2.2e-05         FALSE
+ 2.2e-05         FALSE
+ 2.5e-05         FALSE
+ 3.1e-05         FALSE
+ 7.7e-05         FALSE
+ 7.7e-05         FALSE
+ 7.9e-05         FALSE
+ 8.5e-05         FALSE
+ 1.0e-04         FALSE
+ 1.7e-04         FALSE
+ 4.7e-04         FALSE
+ 5.4e-03         FALSE
+ 8.3e-03         FALSE
+
+=== B. random gene sets with no signal ===
+genes that are DE in no contrast: 804  (excluded from nothing else; 488 DEGs removed)
+draws: 8 of 150 genes each, GO Biological Process
+draws share genes (they come from one pool), so they are not independent; they are repeated looks at the same null, not eight studies
+  draw 1: ours 0 sets | genome 0 sets
+  draw 2: ours 0 sets | genome 0 sets
+  draw 3: ours 0 sets | genome 0 sets
+  draw 4: ours 0 sets | genome 0 sets
+  draw 5: ours 0 sets | genome 0 sets
+  draw 6: ours 0 sets | genome 0 sets
+  draw 7: ours 0 sets | genome 0 sets
+  draw 8: ours 0 sets | genome 0 sets
+  table  -> /root/rna_work_r/results/tables/x3_random_sets.tsv
+
+ background draws draws_with_any_enrichment median_sets max_sets
+     genome     8                         0           0        0
+       ours     8                         0           0        0
+  table  -> /root/rna_work_r/results/tables/x3_random_summary.tsv
+  figure -> /root/rna_work_r/results/figures/x3_background_comparison.png
+  figure -> /root/rna_work_r/results/figures/x3_random_sets.png
+
+=== verdict ===
+Random sets with no signal, 8 draws:
+  chr19 background:  0 draws reported an enriched term (median 0 sets)
+  genome background: 0 draws reported an enriched term (median 0 sets)
+The two backgrounds do not differ on random sets here, so this run does not show the genome background inflating enrichment.
+
+=== x3 done ===

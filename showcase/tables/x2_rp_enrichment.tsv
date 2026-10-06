@@ -1,0 +1,4 @@
+contrast	rp_genes	rp_among_deg	deg_total	odds_ratio	p_value	median_lfc_rp
+acute_vs_control	12	11	296	38.285784466853926	7.539056737731538e-7	1.4311896243925024
+subacute_vs_control	12	11	471	19.572007712113713	1.1287019180677695e-4	1.8007033375743218
+acute_vs_subacute	12	0	2	0	1	-0.3292820024197989

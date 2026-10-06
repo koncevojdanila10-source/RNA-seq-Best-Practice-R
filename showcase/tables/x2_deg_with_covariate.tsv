@@ -1,0 +1,4 @@
+contrast	deg_uncorrected	deg_with_covariate	retained_pct
+acute_vs_control	296	4	1.4
+subacute_vs_control	471	5	1.1
+acute_vs_subacute	2	1	50

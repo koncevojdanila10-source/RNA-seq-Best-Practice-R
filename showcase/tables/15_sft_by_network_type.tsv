@@ -1,0 +1,7 @@
+net_type	cor_method	power	converged
+unsigned	pearson	4	TRUE
+signed	pearson	7	TRUE
+signed hybrid	pearson	3	TRUE
+unsigned	spearman	5	TRUE
+signed	spearman	9	TRUE
+signed hybrid	spearman	4	TRUE

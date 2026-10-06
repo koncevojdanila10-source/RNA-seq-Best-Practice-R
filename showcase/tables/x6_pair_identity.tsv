@@ -1,0 +1,5 @@
+pair	concordance_nonref	called	agrees
+D1_1 / D2_1	0.9571	same person	OK
+D1_4 / D2_4	0.9554	same person	OK
+D1_2 / D2_2	0.8965	same person	OK
+D1_3 / D2_3	0.7345	different people	CONFLICT

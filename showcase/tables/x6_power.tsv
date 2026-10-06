@@ -1,0 +1,4 @@
+fit	pairs_or_per_group	BCV	power_no_correction	power_bonferroni
+unpaired_8	4	0.276	0.923	0.235
+paired_4	4	0.267	0.938	0.27
+paired_3	3	0.28	0.826	0.113

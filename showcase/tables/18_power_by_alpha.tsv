@@ -1,0 +1,3 @@
+assumption	alpha	power_n4	n_for_80pct
+no correction: alpha = 0.05 per test (as in the course)	0.05	0.846	4
+Bonferroni: alpha = 0.05 / 1292	3.869969040247678e-5	0.128	12

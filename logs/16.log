@@ -1,0 +1,67 @@
+
+=== 16 - allele-specific expression with MBASED ===
+simulations per gene: 100 000
+minimum site depth:   10
+
+=== gene annotation ===
+building TxDb from /root/rna_work/data/reference/chr19.gtf (a few minutes)
+Import genomic features from the file as a GRanges object ... OK
+Prepare the 'metadata' data frame ... OK
+Make the TxDb object ... OK
+gene ranges: 3543 genes -> cached
+
+=== running MBASED per sample ===
+  D1_1: 1823 sites in 373 genes, 160 significant (43%), 90 s
+  (11 samples to go at roughly this rate)
+  D1_2: 1128 sites in 274 genes, 103 significant (38%), 56 s
+  D1_3: 2637 sites in 461 genes, 218 significant (47%), 126 s
+  D1_4: 2370 sites in 412 genes, 189 significant (46%), 105 s
+  D2_1: 3555 sites in 486 genes, 256 significant (53%), 161 s
+  D2_2: 817 sites in 220 genes, 91 significant (41%), 36 s
+  D2_3: 1954 sites in 374 genes, 161 significant (43%), 89 s
+  D2_4: 3165 sites in 484 genes, 239 significant (49%), 140 s
+  NC_1: 6965 sites in 637 genes, 436 significant (68%), 306 s
+  NC_3: 6612 sites in 624 genes, 388 significant (62%), 291 s
+  NC_4: 6325 sites in 608 genes, 377 significant (62%), 271 s
+  NC_5: 6629 sites in 566 genes, 362 significant (64%), 289 s
+  table  -> /root/rna_work_r/results/tables/16_mbased_per_gene.tsv
+
+=== per-sample summary ===
+ sample    group sites genes significant pct_significant median_MAF
+   D1_1 subacute  1823   373         160            42.9     0.6641
+   D1_2 subacute  1128   274         103            37.6     0.6669
+   D1_3 subacute  2637   461         218            47.3     0.6875
+   D1_4 subacute  2370   412         189            45.9     0.6747
+   D2_1    acute  3555   486         256            52.7     0.7145
+   D2_2    acute   817   220          91            41.4     0.6945
+   D2_3    acute  1954   374         161            43.0     0.6794
+   D2_4    acute  3165   484         239            49.4     0.6927
+   NC_1  control  6965   637         436            68.4     0.7353
+   NC_3  control  6612   624         388            62.2     0.7352
+   NC_4  control  6325   608         377            62.0     0.7431
+   NC_5  control  6629   566         362            64.0     0.7377
+ median_imbalance
+           0.3282
+           0.3338
+           0.3750
+           0.3493
+           0.4289
+           0.3889
+           0.3588
+           0.3854
+           0.4706
+           0.4704
+           0.4862
+           0.4754
+  table  -> /root/rna_work_r/results/tables/16_mbased_summary.tsv
+
+across all samples: 5519 gene-sample tests, 2980 significant at BH < 0.05 (54.0%)
+NOTE: 54% of genes called imbalanced. Published estimates for real ASE sit in the low single digits, so this points at the heterozygous calls rather than at biology. See analyses/x4_ase_crosscheck.R.
+
+=== figures ===
+representative sample (most genes tested): NC_1
+  figure -> /root/rna_work_r/results/figures/16_ase_volcano.png
+  figure -> /root/rna_work_r/results/figures/16_ase_imbalance_hist.png
+  figure -> /root/rna_work_r/results/figures/16_ase_qq.png
+
+=== 16 done ===

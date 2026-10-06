@@ -1,0 +1,13 @@
+sample	run	group	patient	stage
+D1_1	SRR8207876	subacute	P1	subacute_day7
+D1_2	SRR8207877	subacute	P2	subacute_day7
+D1_3	SRR8207878	subacute	P3	subacute_day7
+D1_4	SRR8207879	subacute	P4	subacute_day7
+D2_1	SRR8207881	acute	P1	acute_24h
+D2_2	SRR8207882	acute	P2	acute_24h
+D2_3	SRR8207883	acute	P3	acute_24h
+D2_4	SRR8207884	acute	P4	acute_24h
+NC_1	SRR8207886	control	C1	control
+NC_3	SRR8207887	control	C3	control
+NC_4	SRR8207888	control	C4	control
+NC_5	SRR8207889	control	C5	control

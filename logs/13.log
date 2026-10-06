@@ -1,0 +1,118 @@
+
+=== 13 - cell type deconvolution ===
+expression matrix: 1109 genes x 12 samples, keyed by gene symbol
+
+=== TIL10 signature coverage ===
+signature files found: TIL10_mRNA_scaling.txt, TIL10_rmgenes.txt, TIL10_signature.txt, TIL10_TCGA_aberrant_immune_genes.txt
+signature file: TIL10_signature.txt with 170 marker genes and 10 cell types
+markers present in our chr19 matrix: 13 of 170  (7.6%)
+they are: C5AR2, CEACAM1, CYP4F3, FCGBP, FPR2, GNG7, ICAM1, LILRA2, LILRB4, MATK, PLEKHF1, S1PR5, SPIB
+  table  -> /root/rna_work_r/results/tables/13_signature_coverage.tsv
+
+=== running quanTIseq ===
+  log2 scale, as in the course script ...
+
+Running quanTIseq deconvolution module
+
+Gene expression normalization and re-annotation (arrays: FALSE)
+
+Removing 17 noisy genes
+
+Signature genes found in data set: 11/153 (7.19%)
+
+Mixture deconvolution (method: lsei)
+
+Deconvolution successful!
+Warning message:
+In check_signature(sig.mat, mix.mat) :
+  Found less than 10% of the signature genes in the provided expression data!
+  linear scale, as quanTIseq expects ...
+
+Running quanTIseq deconvolution module
+
+Gene expression normalization and re-annotation (arrays: FALSE)
+
+Removing 17 noisy genes
+
+Signature genes found in data set: 11/153 (7.19%)
+
+Mixture deconvolution (method: lsei)
+
+Deconvolution successful!
+Warning message:
+In check_signature(sig.mat, mix.mat) :
+  Found less than 10% of the signature genes in the provided expression data!
+     Sample B.cells Macrophages.M1 Macrophages.M2 Monocytes Neutrophils
+D1_1   D1_1       0         0.0000              0         0       1.000
+D1_2   D1_2       0         0.0000              0         0       0.465
+D1_3   D1_3       0         0.1552              0         0       0.667
+D1_4   D1_4       0         0.1595              0         0       0.841
+D2_1   D2_1       0         0.0000              0         0       1.000
+D2_2   D2_2       0         0.0000              0         0       0.776
+D2_3   D2_3       0         0.0000              0         0       1.000
+D2_4   D2_4       0         0.0000              0         0       1.000
+NC_1   NC_1       0         0.0000              0         0       1.000
+NC_3   NC_3       0         0.0000              0         0       1.000
+NC_4   NC_4       0         0.0000              0         0       1.000
+NC_5   NC_5       0         0.0667              0         0       0.905
+     NK.cells T.cells.CD4 T.cells.CD8 Tregs Dendritic.cells    Other
+D1_1    0.000           0           0     0               0 2.50e-13
+D1_2    0.535           0           0     0               0 1.13e-13
+D1_3    0.178           0           0     0               0 4.88e-15
+D1_4    0.000           0           0     0               0 1.10e-13
+D2_1    0.000           0           0     0               0 1.23e-13
+D2_2    0.224           0           0     0               0 2.47e-13
+D2_3    0.000           0           0     0               0 1.12e-13
+D2_4    0.000           0           0     0               0 0.00e+00
+NC_1    0.000           0           0     0               0 8.13e-14
+NC_3    0.000           0           0     0               0 6.22e-15
+NC_4    0.000           0           0     0               0 5.55e-14
+NC_5    0.028           0           0     0               0 1.16e-13
+  table  -> /root/rna_work_r/results/tables/13_quantiseq_log_scale.tsv
+  table  -> /root/rna_work_r/results/tables/13_quantiseq_linear_scale.tsv
+
+=== log scale against linear scale ===
+all sample x cell-type estimates: rho = 0.987  p = 2.38e-104
+median absolute difference: 0.0000
+share of estimates that are zero in both runs: 77%
+  -> most of this agreement is matching zeros, not the method being insensitive to the input scale. It is not reassurance.
+
+=== figure ===
+  figure -> /root/rna_work_r/results/figures/13_cell_fractions.png
+mean 'Other' (unassigned) fraction: 1.02e-11%
+
+=== sanity check against what PBMC are ===
+ sample mononuclear_pct neutrophil_pct unassigned_pct
+   D1_1            0.00         100.00       2.50e-11
+   D1_2           53.50          46.50       1.13e-11
+   D1_3           17.80          66.68       4.88e-13
+   D1_4            0.00          84.05       1.10e-11
+   D2_1            0.00         100.00       1.23e-11
+   D2_2           22.42          77.58       2.47e-11
+   D2_3            0.00         100.00       1.12e-11
+   D2_4            0.00         100.00       0.00e+00
+   NC_1            0.00         100.00       8.13e-12
+   NC_3            0.00         100.00       6.22e-13
+   NC_4            0.00         100.00       5.55e-12
+   NC_5            2.80          90.53       1.16e-11
+  table  -> /root/rna_work_r/results/tables/13_pbmc_sanity_check.tsv
+mean mononuclear fraction: 8.0%
+mean neutrophil fraction:  88.8%
+cell types estimated at exactly zero in every sample: T.cells.CD4, T.cells.CD8, Tregs, B.cells, Monocytes, Dendritic.cells
+-> neutrophils outweigh the mononuclear types in a mononuclear cell preparation. The estimate is not merely uncertain, it is inverted, and it is stated with no unassigned mass at all.
+Warning message:
+`aes_string()` was deprecated in ggplot2 3.0.0.
+ℹ Please use tidy evaluation idioms with `aes()`.
+ℹ See also `vignette("ggplot2-in-packages")` for more information.
+ℹ The deprecated feature was likely used in the quantiseqr package.
+  Please report the issue to the authors. 
+
+=== verdict ===
+TIL10 coverage is 7.6%. Deconvolution is NOT assessable on this dataset.
+The missing markers are not treated as missing by the method -- they enter the fit as genes with no expression, which is a
+statement about the mixture rather than about our reference. The numbers above are reported as a demonstration of the method
+and as evidence for this limit; they are not an estimate of the cell composition of these samples.
+Lifting this limit needs whole-genome quantification, which the chr19 design rules out: the reads were prefiltered against chr19
+exons before alignment, so the counts for the other 22 chromosomes do not exist and cannot be recovered from these files.
+
+=== 13 done ===

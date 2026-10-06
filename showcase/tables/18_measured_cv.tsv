@@ -1,0 +1,4 @@
+group	samples	genes	cv_median	cv_q25	cv_q75	cv_q90
+control	4	1210	0.232	0.143	0.357	0.518
+acute	4	1192	0.278	0.183	0.413	0.618
+subacute	4	1173	0.203	0.125	0.33	0.528

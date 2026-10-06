@@ -1,0 +1,25 @@
+geneSet	description	enrichmentRatio	FDR	contrast	database
+R-HSA-72695	Formation of the ternary complex, and subsequently, the 43S complex	13.035664659564615	9.991889848474807e-6	acute_vs_control	pathway_Reactome
+R-HSA-72649	Translation initiation complex formation	11.46239478685854	2.2495606692451984e-5	acute_vs_control	pathway_Reactome
+R-HSA-72702	Ribosomal scanning and start codon recognition	11.46239478685854	2.2495606692451984e-5	acute_vs_control	pathway_Reactome
+R-HSA-72662	Activation of the mRNA upon binding of the cap-binding complex and eIFs, and subsequent binding to 43S	11.268116909115173	2.4773004479236797e-5	acute_vs_control	pathway_Reactome
+R-HSA-72695	Formation of the ternary complex, and subsequently, the 43S complex	9.502400960384154	3.1174859172862965e-5	subacute_vs_control	pathway_Reactome
+R-HSA-72649	Translation initiation complex formation	8.355559465165376	7.700638134059003e-5	subacute_vs_control	pathway_Reactome
+R-HSA-72702	Ribosomal scanning and start codon recognition	8.355559465165376	7.700638134059003e-5	subacute_vs_control	pathway_Reactome
+GO:0022627	cytosolic small ribosomal subunit	14.765284104531288	7.898829055585921e-5	acute_vs_control	geneontology_Cellular_Component
+R-HSA-72662	Activation of the mRNA upon binding of the cap-binding complex and eIFs, and subsequent binding to 43S	8.213939813213422	8.495243329512681e-5	subacute_vs_control	pathway_Reactome
+GO:0022627	cytosolic small ribosomal subunit	10.985484626190104	1.0304230035707018e-4	subacute_vs_control	geneontology_Cellular_Component
+GO:0015935	small ribosomal subunit	10.219834470741977	1.713974014801778e-4	acute_vs_control	geneontology_Cellular_Component
+GO:0015935	small ribosomal subunit	7.484828433689384	4.6550410134855725e-4	subacute_vs_control	geneontology_Cellular_Component
+GO:0030667	secretory granule membrane	3.2244084568339555	0.005442313388268912	subacute_vs_control	geneontology_Cellular_Component
+GO:0044445	cytosolic part	3.3879414677082185	0.008290584190637773	subacute_vs_control	geneontology_Cellular_Component
+GO:0000028	ribosomal small subunit assembly	23.893906810035844	0.009786514031014604	acute_vs_control	geneontology_Biological_Process
+GO:0035579	specific granule membrane	5.190943284903017	0.014958328196953086	subacute_vs_control	geneontology_Cellular_Component
+R-HSA-211979	Eicosanoids	20.7755905511811	0.015896065816606963	acute_vs_control	pathway_Reactome
+R-HSA-419408	Lysosphingolipid and LPA receptors	17.807649043869517	0.025007848579260927	acute_vs_control	pathway_Reactome
+R-HSA-166658	Complement cascade	7.163996741786588	0.027638878633916984	acute_vs_control	pathway_Reactome
+ACTAYRNNNCCCR_UNKNOWN	NA	2.9025865559829924	0.02806868342215374	subacute_vs_control	network_Transcription_Factor_target
+R-HSA-5663205	Infectious disease	2.8280908603702026	0.02825181815063218	acute_vs_control	pathway_Reactome
+R-HSA-211935	Fatty acids	16.620472440944884	0.02825181815063218	acute_vs_control	pathway_Reactome
+GO:0042274	ribosomal small subunit biogenesis	8.67117585848075	0.02938215373326931	acute_vs_control	geneontology_Biological_Process
+GO:0042788	polysomal ribosome	11.703358829398072	0.034451906015567135	acute_vs_control	geneontology_Cellular_Component
